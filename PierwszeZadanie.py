@@ -1,11 +1,9 @@
-A=int(input())
-B=int(input())
+A, B = map(int,input().split())
 
-if A>B:
-  print("Bitek")
-elif B>A:
-  print("Bajtek")
-elif A == B:
-  print("Remis")
-else:
-  print("SKANDAL")
+if (A + B) != 100: print("SKANDAL")
+
+elif A > B: print("Bitek")
+
+elif B > A: print("Bajtek")
+
+else: print("Remis")
