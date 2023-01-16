@@ -27,3 +27,4 @@ elif a > c:
             print(b - a)
         else:
             print(d - c)
+#>:(
