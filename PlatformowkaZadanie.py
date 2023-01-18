@@ -21,10 +21,10 @@ elif a > c:
     if d == a:
         print(0)
     elif d < a:
-        print("Nie")
+        print("NIE")
     else:
         if d >= b:
             print(b - a)
         else:
-            print(d - c)
+            print(d - a)
 #>:(
