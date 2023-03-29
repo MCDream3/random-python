@@ -46,3 +46,37 @@ print(s)
 
 #Zad6
 
+f = input()
+maks = 0 
+for x in f:
+  if f.count(x) > maks:
+    maks = f.count(x)
+    litera = x
+print(litera, maks)
+
+#Zad7
+
+def CzyJestMniejszyNiezerowy(L, n):
+  for x in L:
+    if 0 < L.count(x) < n:
+      return True
+  return False
+
+
+g = input()
+K = [0] * 100
+for x in g:
+  K[ord(x)] += 1
+print(K)
+dominanta = max(K)
+
+if sum(K) == max(K):
+  print("Dominanta:", chr(K.index(max(K))))
+elif not CzyJestMniejszyNiezerowy(K):
+  print("Brak dominanty")
+else:
+  D = []
+  for i in range(len(K)):
+      if K[i] == max(K):
+        D.append(chr(i))
+  print("Dominanty:",",".join(D))
