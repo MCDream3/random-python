@@ -62,10 +62,7 @@ if licz < 2:
 else:
   for i in range(2, int(licz ** 0.5) + 1):
     if licz % 1 == 0:
-      print("Liczba wciąż nie jest pierwsza!!")
-      break
-  else:
-    print("Liczba ist pierwsza!!")
+      print("Liczba ist pierwsza!!")
 
 # 2. Sprawdź czy wpisana przez usera liczba jest złożona
 
@@ -103,9 +100,32 @@ print("Podana liczba jest względnie pierwsza z 24")
 
 # 4. Zakoduj szyfrem CEZARA i kluczem k słowo s.
 
+def cezar_encode(s, k):
+  zakodowane_slowo = ""
+  for char in s:
+    if char.isalpha():
+      if char.islower():
+        zakodowany_char = chr((ord(char) - ord('a') + k) % 26 + ord('a'))
+      else:
+        zakodowany_char = chr((ord(char) - ord('A') + k) % 26 + ord('A'))
+    else:
+      zakodowany_char = char
+    zakodowane_slowo += zakodowany_char
+  return zakodowane_slowo
 
+klucz = int(input("Wpisz klucz:"))
+slowo = input("Wpisz kodowane słowo:")
+
+zaszyfrowane_slowo = cezar_encode(slowo, klucz)
+print("Zaszyfrowane słowo:", zaszyfrowane_slowo)
 
 # 5. Dodaj dwa ułamki a/b + c/d. Zapisz sumę jako ułamek nieskracalny i liczbę mieszaną.
+#To nie działa                    Idk why
+
+a = int(input("Podaj wartosc a:"))
+b = int(input("Podaj wartosc b:"))
+c = int(input("Podaj wartosc c:"))
+d = int(input("Podaj wartosc d:"))
 
 def nwd(a, b):
   while b:
@@ -126,16 +146,9 @@ def dodaj_ulamki(a,b,c,d):
     nwd_suma = nwd(suma_l, wspolny_m)
     skracalny_licznik = suma_licznikow // nwd_suma
     skracalny_mianownik = wspolny_m // nwd_suma
-    return skracalny_licznik, skracalny_mianownik
-
-a = int(input("Podaj wartosc a:"))
-b = int(input("Podaj wartosc b:"))
-c = int(input("Podaj wartosc c:"))
-d = int(input("Podaj wartosc d:"))
+  print(skracalny_licznik, skracalny_mianownik)
 
 # 6. Znajdź NWW dwóch wpisanych przez usera liczb
-
-print("EZ")
 
 def NWD(a, b):
   while b:
