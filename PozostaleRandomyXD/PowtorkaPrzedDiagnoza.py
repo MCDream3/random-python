@@ -157,11 +157,17 @@ print("NWW:", wynik)
 
 # 1. Oblicz wartość ONP - 8822+/234*---
 
-
+# 8 8 2 2 + / 2 3 4 * - - -
+# 8 8 4 / 2 3 4 * - - -
+# 8 2 2 3 4 * - - -
+# 8 2 2 12 - - -
+# 8 2 -14 - -
+# 8 -16 -
+# -24
 
 # 2. Znajdź postać ONP dla pisanego wyrażenia - (3+8)/4-6*(3*4/2)
 
-
+# Postać ONP dla tego wyrażenia to -    3 8 + 4 / 6 3 4 * 2 / * -
 
 # 3. Napisz na kartce algorytm NWD (obie wersje) i przeprowadz symulacje kroków dla podanych liczb - dowolny i a=35 b=56
 
@@ -172,12 +178,32 @@ print("NWW:", wynik)
 
 # 1. Znajdź ilość liter C we wpisanym napisie
 
-
+napis = input()
+ilosc_c = napis.count("C")
+print("Ilość liter c w napisie wynosi:", ilosc_c)
 
 # 2. Sprawdź czy literki w napisie są w porządku nierosnącym: np ZOO, WOK, WODA itp
 
-
+nap = input()
+for i in range(len(nap)-1):
+  if ord(nap[i]) < ord(nap[i+1]):
+    print("UWAGA!!! LITERY NIE SĄ W PORZĄDKU NIE ROSNĄCYM!!")
+    break
+  else:
+    print("Litery są w porzą w porządku nie rosnącym")
 
 # 3. Podaj najdłuższy z 3 wpisanych przez usera wyrazów.
 
+w1 = input("Podaj pierwszy wyraz ciulu:")
+w2 = input("Dobra teraz drugi:")
+w3 = input("Został ostatni:")
+najdluzszy_wyraz = ""
 
+if len(w1) > len(najdluzszy_wyraz):
+  najdluzszy_wyraz = w1
+if len(w2) > len(najdluzszy_wyraz):
+  najdluzszy_wyraz = w2
+if len(w3) > len(najdluzszy_wyraz):
+  najdluzszy_wyraz = w3
+
+print(f"Idk jak tego nie zauważyłeś ale nadłuższy wyraz to:{najdluzszy_wyraz}")
