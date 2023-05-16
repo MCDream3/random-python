@@ -171,7 +171,47 @@ print("NWW:", wynik)
 
 # 3. Napisz na kartce algorytm NWD (obie wersje) i przeprowadz symulacje kroków dla podanych liczb - dowolny i a=35 b=56
 
+def nwd_odejmowanie(a, b):
+  while a != b:
+    if a > b:
+      a = a - b
+    else:
+      b = b - a
+  return a
 
+def nwd_modulo(a, b):
+  while b != 0:
+    a, b = b, a % b
+  return a
+
+def symulacja_krokow(a, b):
+  print(f"Symulacja kroków dla a = {a} i b = {b}:")
+  print("Metoda odejmowania")
+  krok = 1
+  while a!= b:
+    if a > b:
+      a = a - b
+    else:
+      b = b - a
+    print(f"Krok{krok}: a = {a}, b = {b}")
+    krok += 1
+
+  print("Metoda modulo:")
+  krok = 1
+  while b != 0:
+    a,  b = b, a % b
+    print(f"Krok{krok}: a = {a}, b = {b}")
+    krok += 1
+
+a = 35
+b = 56
+
+wynik_odejmowanie = nwd_odejmowanie(a, b)
+wynik_modulo = nwd_modulo(a, b)
+print(f"NWD za pomocą metody odejmowania dla a = {a} i b = {b}: {wynik_odejmowanie}")
+print(f"NWD za pomocą metody modulo dla a = {a} i b = {b}: {wynik_modulo}")
+
+symulacja_krokow(a, b)
 
 
 # - NAPISY
