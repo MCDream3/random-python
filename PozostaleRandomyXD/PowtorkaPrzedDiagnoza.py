@@ -96,14 +96,18 @@ else:
 
 # 3. Sprawdź czy wpisana przez usera liczba jest względnie pierwsza z 24
 
-LICZBA = int(input("Podaj jakąś liczbę:"))
+def czy_wzglednie_pierwsza(number):
+  for i in range(2, 25):
+    if number % i == 0 and 24 % i == 0:
+      return False
+    return True
 
-for DZIELNIK in range(2,25):
-  if LICZBA % DZIELNIK == 0 and 24 % DZIELNIK == 0:
-    print("Podana liczba nie jest względnie pierwsza z 24")
-    return
+inp = int(input("Wprowadx dowolną liczbę:"))
 
-print("Podana liczba jest względnie pierwsza z 24")
+if czy_wzglednie_pierwsza(inp):
+  print("Liczba jest względnie pierwsza z 24!")
+else:
+  print("Liczba nie jest względnie pierwsza z 24 ciulu!!!")
 
 # 4. Zakoduj szyfrem CEZARA i kluczem k słowo s.
 
@@ -127,34 +131,33 @@ zaszyfrowane_slowo = cezar_encode(slowo, klucz)
 print("Zaszyfrowane słowo:", zaszyfrowane_slowo)
 
 # 5. Dodaj dwa ułamki a/b + c/d. Zapisz sumę jako ułamek nieskracalny i liczbę mieszaną.
-#To nie działa                    Idk why
 
-a = int(input("Podaj wartosc a:"))
-b = int(input("Podaj wartosc b:"))
-c = int(input("Podaj wartosc c:"))
-d = int(input("Podaj wartosc d:"))
-
-def nwd(a, b):
-  while b:
-    a, b = b, a % b
+def gcd(a, b):
+  while b != 0:
+    a, b =b, a % b
   return a
 
-def dodaj_ulamki(a,b,c,d):
-  wspolny_m = b * d // nwd(b, d)
+def add_fractions(a, b, c, d):
+  numerator = (a * d) + (b * c)
+  denominator = b * d
+  devisor = gcd(numerator, denominator)
+  numerator /= devisor
+  denominator /= devisor
+  cala_czesc = numerator // denominator
+  numerator %= denominator
+  return cala_czesc, int(numerator), int(denominator)
 
-  nowy_licznik_a - a * (wspolny_m // b)
-  nowy_licznik_c - c * (wspolny_m // d)
-  suma_l = nowy_licznik_a + nowy_licznik_c
+a = int(input("Podaj a:"))
+b = int(input("Podaj b:"))
+c = int(input("Podaj c:"))
+d = int(input("Podaj d:"))
 
-  if suma_l % wspolny_m == 0:
-    liczba_calkowita = suma_l // wspolny_m
-    return liczba_calkowita, None
-  else:
-    nwd_suma = nwd(suma_l, wspolny_m)
-    skracalny_licznik = suma_licznikow // nwd_suma
-    skracalny_mianownik = wspolny_m // nwd_suma
-  print(skracalny_licznik, skracalny_mianownik)
-
+cala_czesc, numerator, denominator = add_fractions(a, b, c, d)
+if cala_czesc == 0:
+  print(f"Wynik:{numerator}/{denominator}")
+else:
+  print(f"Wynik:{cala_czesc} {numerator}/{denominator}")
+  
 # 6. Znajdź NWW dwóch wpisanych przez usera liczb
 
 def NWD(a, b):
