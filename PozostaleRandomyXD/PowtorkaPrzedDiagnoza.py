@@ -56,13 +56,20 @@ print("Najmniejsza cyfra w podanej liczbie to:", najmniejsza_cyfra)
 
 # 1. Sprawdź czy wpisana przez usera liczba jest pierwsza
 
-licz = int(input("Podaj liczbę:"))
-if licz < 2:
-  print("Liczba ist nicht pierwsza!! XD")
+def czy_pierwsza(LiCzBa):
+  if LiCzBa < 2:
+    return False
+  for i in range(2, int(LiCzBa ** 0.5) + 1):
+    if LiCzBa % i == 0:
+      return False
+  return True
+
+u = int(input("Podaj liczbę:"))
+
+if czy_pierwsza(u):
+  print("Liczba jest pierwsza!")
 else:
-  for i in range(2, int(licz ** 0.5) + 1):
-    if licz % 1 == 0:
-      print("Liczba ist pierwsza!!")
+  print("Liczba nie jest pierwsza")
 
 # 2. Sprawdź czy wpisana przez usera liczba jest złożona
 
