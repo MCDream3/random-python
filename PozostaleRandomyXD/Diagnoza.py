@@ -7,12 +7,12 @@
 # print(suma)
 
 
-#Zad 4    +
+#Zad 4    -
 # for j in range(10,100):
 #   if j % 2 == 0 and j % 13 == 0:
 #     print(j)
 
-#Zad 5    +
+#Zad 5    -
 
 # n = int(input())
 # ilosc = 0
